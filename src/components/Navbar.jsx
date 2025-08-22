@@ -58,12 +58,12 @@ export default function Navbar() {
       <div className="navbar-end">
         <ul className="flex mr-4 gap-4 text-lg">
           {status == "authenticated" ? (<>
-          <li onClick={() => signOut()}  className="btn btn-outline rounded text-indigo-700">
+          <li onClick={() => signOut()}  className="btn btn-outline rounded text-gray-800 hover:bg-gray-800 hover:text-white">
             Logout
           </li>
-          <li><Image  className="rounded-full border-3 border-indigo-700" src={cookie?.user?.image} width={40} height={40} alt="user-image"></Image></li>
+          <li><Image  className="rounded-full border-3 border-graytext-gray-800 hover:bg-gray-800 hover:text-white" src={cookie?.user?.image} width={40} height={40} alt="user-image"></Image></li>
           </>) : (<>
-          <li className="btn btn-outline rounded text-indigo-700">
+          <li className="btn btn-outline rounded text-gray-800 hover:bg-gray-800 hover:text-white">
             <Link href={"/login"}>Login</Link>
           </li>
           </>)}

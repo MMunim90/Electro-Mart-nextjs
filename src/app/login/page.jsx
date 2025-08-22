@@ -1,22 +1,19 @@
+"use client";
 // app/login/page.jsx  (Next.js 13+ App Router)
 // or pages/login.jsx (Next.js Pages Router)
 
-import Image from "next/image";
-import loginIllustration from "../../../public/assets/images/login/login.svg"; 
+// import Image from "next/image";
+import Lottie from "lottie-react";
+import loginIllustration from "../../../public/assets/login/login.json"; 
 import LoginForm from "./components/LoginForm";
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
+    <div className="min-h-screen flex items-center justify-center bg-black text-white">
       <div className="flex max-w-5xl w-full">
         {/* Left Side Illustration */}
         <div className="hidden md:flex w-1/2 items-center justify-center p-6">
-          <Image
-            src={loginIllustration}
-            alt="Login Illustration"
-            className="max-w-full h-auto"
-            priority
-          />
+          <Lottie animationData={loginIllustration} loop={true} className="w-full h-full max-w-md" />
         </div>
 
         {/* Right Side Form */}

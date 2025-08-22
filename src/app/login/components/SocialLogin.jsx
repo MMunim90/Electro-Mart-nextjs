@@ -27,7 +27,7 @@ export default function SocialLogin() {
           onClick={() => handleSocialLogin("google")}
           target="_blank"
           rel="noreferrer"
-          className="bg-gray-300 p-3 rounded-full"
+          className="bg-white text-black p-3 rounded-full"
         >
           <FaGoogle type="button"/>
         </a>
@@ -35,7 +35,7 @@ export default function SocialLogin() {
           onClick={() => handleSocialLogin("github")}
           target="_blank"
           rel="noreferrer"
-          className="bg-gray-300 p-3 rounded-full"
+          className="bg-white text-black p-3 rounded-full"
         >
           <FaGithub type="button"/>
         </a>

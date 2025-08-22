@@ -1,22 +1,18 @@
+"use client";
 // app/signup/page.jsx  (Next.js 13+ App Router)
 // or pages/signup.jsx (Next.js Pages Router)
 
-import Image from "next/image";
-import signupIllustration from "../../../public/assets/images/login/login.svg";
+import Lottie from "lottie-react";
+import loginIllustration from "../../../public/assets/login/login.json"; 
 import RegisterFrom from "./components/RegisterFrom";
 
 export default function SignUpPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
+    <div className="min-h-screen flex items-center justify-center bg-black">
       <div className="flex max-w-5xl w-full">
         {/* Left Side Illustration */}
         <div className="hidden md:flex w-1/2 items-center justify-center p-6">
-          <Image
-            src={signupIllustration}
-            alt="Sign Up Illustration"
-            className="max-w-full h-auto"
-            priority
-          />
+          <Lottie animationData={loginIllustration} loop={true} className="w-full h-full max-w-md" />
         </div>
 
         {/* Right Side Form */}

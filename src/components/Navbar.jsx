@@ -56,7 +56,7 @@ export default function Navbar() {
         <ul className="menu menu-horizontal px-1 text-lg">{navMenu()}</ul>
       </div>
       <div className="navbar-end">
-        {/* <ul className="flex mr-4 gap-4 text-lg">
+        <ul className="flex mr-4 gap-4 text-lg">
           {status == "authenticated" ? (<>
           <li onClick={() => signOut()}  className="btn btn-outline rounded text-gray-800 hover:bg-gray-800 hover:text-white">
             Logout
@@ -67,7 +67,7 @@ export default function Navbar() {
             <Link href={"/login"}>Login</Link>
           </li>
           </>)}
-        </ul> */}
+        </ul>
       </div>
     </div>
   );

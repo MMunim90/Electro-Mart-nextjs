@@ -46,7 +46,7 @@ export default async function ProductsPage() {
 
               <div className="mt-auto">
                 <Link
-                  href={`/allProducts/${product._id}`}
+                  href={`/productDetails/${product._id}`}
                   className="block text-center bg-white w-full rounded-md text-gray-800 py-2 font-bold hover:bg-gray-100 transition"
                 >
                   Details

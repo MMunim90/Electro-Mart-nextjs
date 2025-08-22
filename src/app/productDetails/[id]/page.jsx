@@ -20,13 +20,14 @@ export default async function ProductsDetailsPage({params}) {
 
         {/* Product Details */}
         <div>
-          <h1 className="text-3xl md:text-5xl font-semibold mb-4">{product.name}</h1>
+          <h1 className="text-3xl md:text-5xl font-semibold mb-3">{product.name}</h1>
+          <p className="mb-4 text-lg md:text-xl">Category : {product.category}</p>
           <p className="text-gray-500 mb-4">{product.description}</p>
-          <p className="text-2xl font-bold text-blue-600 mb-6">
+          <p className="text-2xl font-bold text-gray-500 mb-6">
             ${product.price}
           </p>
 
-          <button className="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition">
+          <button className="bg-white hover:bg-gray-300 text-black px-6 py-3 rounded-xl transition">
             Buy Now
           </button>
         </div>

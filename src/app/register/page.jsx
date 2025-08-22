@@ -8,7 +8,7 @@ import RegisterFrom from "./components/RegisterFrom";
 
 export default function SignUpPage() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-black">
+    <div className="min-h-screen flex items-center justify-center bg-black text-white">
       <div className="flex max-w-5xl w-full">
         {/* Left Side Illustration */}
         <div className="hidden md:flex w-1/2 items-center justify-center p-6">

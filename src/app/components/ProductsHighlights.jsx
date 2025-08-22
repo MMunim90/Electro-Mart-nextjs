@@ -28,7 +28,7 @@ export default async function ProductsHighlights() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {featuredProducts.map((product) => (
             <div
-              key={product.productID}
+              key={product._id}
               className="p-4 rounded-lg border border-gray-800 transition flex flex-col bg-gray-900"
             >
               <img

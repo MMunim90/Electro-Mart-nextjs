@@ -1,4 +1,5 @@
 import dbConnect, { collectionNameObj } from "@/lib/dbConnect";
+import Link from "next/link";
 import React from "react";
 
 export default async function ProductsHighlights() {
@@ -27,8 +28,8 @@ export default async function ProductsHighlights() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {featuredProducts.map((product) => (
             <div
-              key={product.id}
-              className="p-4 rounded-lg border border-gray-800 transition flex flex-col"
+              key={product.productID}
+              className="p-4 rounded-lg border border-gray-800 transition flex flex-col bg-gray-900"
             >
               <img
                 src={product.image}
@@ -43,7 +44,12 @@ export default async function ProductsHighlights() {
 
               {/* Sticky button at bottom */}
               <div className="mt-auto">
-                <button className="btn w-full">Details</button>
+                <Link
+                  href={`/allProducts/${product._id}`}
+                  className="block text-center bg-white w-full rounded-md text-gray-800 py-2 font-bold hover:bg-gray-100 transition"
+                >
+                  Details
+                </Link>
               </div>
             </div>
           ))}

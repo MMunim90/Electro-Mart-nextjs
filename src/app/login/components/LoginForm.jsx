@@ -13,7 +13,7 @@ export default function LoginForm() {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    toast("Submitting.....");
+    toast("Please wait.....");
     try {
       const response = await signIn("credentials", {
         email,
@@ -24,7 +24,7 @@ export default function LoginForm() {
       //console.log({email, password});
       if (response.ok) {
         toast.success("Logged In SuccessFully");
-        router.push("/");
+        router.push("/products");
         form.reset();
       } else {
         toast.error("Failed to Logged In");
@@ -56,7 +56,7 @@ export default function LoginForm() {
 
       <button
         type="submit"
-        className="w-full bg-white hover:bg-gray-300 text-black py-2 rounded-md transition"
+        className="w-full bg-white hover:bg-gray-300 text-black py-2 rounded-md transition cursor-pointer"
       >
         Sign In
       </button>

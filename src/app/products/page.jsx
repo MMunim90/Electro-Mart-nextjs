@@ -25,7 +25,7 @@ export default async function ProductsPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {products.map((product) => (
             <div
-              key={product.productID}
+              key={product._id}
               className="p-6 rounded-lg shadow hover:shadow-2xl hover:scale-103 transition-all duration-300 flex flex-col border border-gray-800 bg-gray-900"
             >
               <div className="relative w-full h-48 mb-4">

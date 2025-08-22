@@ -16,7 +16,7 @@ export default function SocialLogin() {
 
     useEffect(() => {
         if(session?.status === "authenticated"){
-            router.push("/");
+            router.push("/products");
             toast.success("Successfully Logged In")
         }
     }, [session?.status])
@@ -27,7 +27,7 @@ export default function SocialLogin() {
           onClick={() => handleSocialLogin("google")}
           target="_blank"
           rel="noreferrer"
-          className="bg-white text-black p-3 rounded-full"
+          className="bg-white text-black p-3 rounded-full cursor-pointer"
         >
           <FaGoogle type="button"/>
         </a>
@@ -35,7 +35,7 @@ export default function SocialLogin() {
           onClick={() => handleSocialLogin("github")}
           target="_blank"
           rel="noreferrer"
-          className="bg-white text-black p-3 rounded-full"
+          className="bg-white text-black p-3 rounded-full cursor-pointer"
         >
           <FaGithub type="button"/>
         </a>

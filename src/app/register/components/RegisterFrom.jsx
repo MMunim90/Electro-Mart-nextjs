@@ -1,17 +1,39 @@
 "use client";
 import { registerUser } from "@/app/actions/auth/registerUser";
 import SocialLogin from "@/app/login/components/SocialLogin";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import React from "react";
+import toast from "react-hot-toast";
 
 export default function RegisterFrom() {
+  const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-
-    await registerUser({ name, email, password });
+    toast("Please wait.....");
+    try {
+      const res = await registerUser({ name, email, password });
+      if (res.ok) {
+        await signIn("credentials", {
+          email,
+          password,
+          redirect: false,
+        });
+        toast.success("Registration successful! ✅");
+        router.push("/products");
+        form.reset();
+      } else {
+        toast.error(res.message || "Registration failed ❌");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong ❌");
+    }
   };
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
@@ -44,7 +66,7 @@ export default function RegisterFrom() {
 
       <button
         type="submit"
-        className="w-full bg-white hover:bg-gray-300 text-black py-2 rounded-md transition"
+        className="w-full bg-white hover:bg-gray-300 text-black py-2 rounded-md transition cursor-pointer"
       >
         Sign Up
       </button>

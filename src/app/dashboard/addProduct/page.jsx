@@ -1,9 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import { useSession } from "next-auth/react";
+import toast from "react-hot-toast";
 
 export default function AddProductPage() {
-  const { data: session } = useSession(); 
+  const { data: session } = useSession();
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -13,7 +14,6 @@ export default function AddProductPage() {
   });
 
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
 
   const categories = [
     "Electronics",
@@ -35,18 +35,19 @@ export default function AddProductPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
+    toast("Adding product....");
     try {
       const payload = {
         ...formData,
         addedBy: {
           name: session?.user?.name || "Unknown",
-          image: session?.user?.image || "https://i.ibb.co.com/990my6Yq/avater.png",
+          image:
+            session?.user?.image || "https://i.ibb.co/990my6Yq/avater.png",
           email: session?.user?.email || null,
         },
       };
 
-      const res = await fetch("/api/products", {
+      const res = await fetch("http://localhost:3000/api/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -54,7 +55,7 @@ export default function AddProductPage() {
 
       const data = await res.json();
       if (res.ok) {
-        setMessage("Product added successfully!");
+        toast.success("Product added successfully!");
         setFormData({
           name: "",
           description: "",
@@ -63,10 +64,10 @@ export default function AddProductPage() {
           category: "",
         });
       } else {
-        setMessage(data.error || "Something went wrong");
+        toast.error(data.error || "Something went wrong");
       }
     } catch (error) {
-      setMessage("Error adding product");
+      toast.error("Error adding product");
     }
 
     setLoading(false);
@@ -84,10 +85,6 @@ export default function AddProductPage() {
       </div>
 
       <div className="w-full max-w-7xl">
-        {message && (
-          <p className="mb-4 text-center text-green-600 font-medium">{message}</p>
-        )}
-
         <form
           onSubmit={handleSubmit}
           className="grid md:grid-cols-2 gap-4 space-y-4 md:space-y-0"

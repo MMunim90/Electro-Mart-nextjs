@@ -43,12 +43,12 @@ npm run dev
 
 ## Route Summary
 
-1. / GET = Home page showing featured products
-2. /products GET = All products page displaying full catalog
-3. /products/[id] GET = Product details page
-4. /dashboard/addProduct GET = Add product form (protected, admin only)
-5. /api/products POST = API route to add a new product (requires auth)
-6. /api/products GET = API route to fetch all products
+1. / -> GET = Home page showing featured products
+2. /products -> GET = All products page displaying full catalog
+3. /products/[id] -> GET = Product details page
+4. /dashboard/addProduct -> GET = Add product form (protected, admin only)
+5. /api/products -> POST = API route to add a new product (requires auth)
+6. /api/products -> GET = API route to fetch all products
 
 
 ## Technologies Used

@@ -41,17 +41,19 @@ export default function AddProductPage() {
         ...formData,
         addedBy: {
           name: session?.user?.name || "Unknown",
-          image:
-            session?.user?.image || "https://i.ibb.co/990my6Yq/avater.png",
+          image: session?.user?.image || "https://i.ibb.co/990my6Yq/avater.png",
           email: session?.user?.email || null,
         },
       };
 
-      const res = await fetch("http://localhost:3000/api/products", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/products`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
 
       const data = await res.json();
       if (res.ok) {

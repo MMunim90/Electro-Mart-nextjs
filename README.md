@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Electro-Mart
 
-## Getting Started
+## Project Description
+Electro-Mart is a modern e-commerce web application built with Next.js and MongoDB. It allows users to browse and purchase electronics, including smartphones, TVs, laptops, audio devices, and more. Admins can manage products through a secure dashboard.
 
-First, run the development server:
+Key features:
+- Responsive product catalog with product highlights
+- Product details page with “Added by” information
+- Adding new products
+- Authentication using NextAuth
+- Fast and reliable API routes connected to MongoDB
 
+---
+
+## Setup & Installation
+
+1. **Clone the repository:**
 ```bash
+git clone https://github.com/yourusername/electro-mart.git
+cd electro-mart
+
+2. **Install dependencies:**
+
+npm install
+
+
+3. **Set up environment variables:**
+Create a .env.local file in the root directory:
+
+MONGODB_URI=<Your MongoDB connection string>
+NEXTAUTH_SECRET=<Your secret for NextAuth>
+NEXTAUTH_URL=http://localhost:3000
+NEXT_PUBLIC_API_URL=http://localhost:3000
+
+
+4. **Run the development server:**
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. / GET = Home page showing featured products
+2. /products GET = All products page displaying full catalog
+3. /products/[id] GET = Product details page
+4. /dashboard/addProduct GET = Add product form (protected, admin only)
+5. /api/products POST = API route to add a new product (requires auth)
+6. /api/products GET = API route to fetch all products
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Technologies Used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next.js (App Router)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Tailwind CSS & Daisy UI
 
-## Deploy on Vercel
+- MongoDB
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- NextAuth for authentication
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- React Hot Toast for notifications

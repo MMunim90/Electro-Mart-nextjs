@@ -24,7 +24,7 @@ export default function Navbar() {
     );
   };
   return (
-    <div className="navbar bg-white shadow-sm px-12 sticky top-0 z-50">
+    <div className="navbar bg-white shadow-sm px-3 md:px-6 lg:px-12 sticky top-0 z-50">
       <div className="navbar-start">
         <div className="dropdown">
           <div
